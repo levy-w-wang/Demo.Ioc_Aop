@@ -8,7 +8,7 @@ namespace Demo.Business
     public class UserBusiness : IScopedDependency
     {
         public UserData UserData { get; set; }
-        public List<User> FindUser(int age)
+        public /*virtual*/ List<User> FindUser(int age)
         {
             return UserData.FindUser(age);
         }

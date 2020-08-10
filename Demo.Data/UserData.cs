@@ -2,6 +2,8 @@
 using Demo.IocCommon.AutofacDependency;
 using System.Collections.Generic;
 using System.Linq;
+using AspectCore.DynamicProxy;
+using Demo.IocCommon.AopCore;
 
 namespace Demo.Data
 {
@@ -35,7 +37,10 @@ namespace Demo.Data
                 Name = "lev66y",
             },
         };
-        public List<User> FindUser(int age)
+
+        [LogInterceptor]
+        //[NonAspect]
+        public virtual List<User> FindUser(int age)
         {
             return Users.Where(c => c.Age > age).ToList();
         }
